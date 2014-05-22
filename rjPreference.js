@@ -25,7 +25,7 @@ angular.module('rjPreference', [])
 			localStorage.removeItem(key);
 			return this;
 		}
-	}
+	};
 })
 .directive('rjPreference', ['rjStore',function(store) {
 	return {
@@ -35,7 +35,7 @@ angular.module('rjPreference', [])
 			if (!store) return; //no local storage
 			if (!ngModel) return; //no ngModel controller
 
-			var key = attr['rjPreference'];
+			var key = attr.rjPreference;
 			var storedVal = store.get(key);
 
 			if (attr.type && attr.type.toLowerCase() === 'checkbox') {
@@ -64,5 +64,5 @@ angular.module('rjPreference', [])
 			});
 
 		}
-	}
+	};
 }]);
