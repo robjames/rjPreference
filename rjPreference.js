@@ -40,6 +40,7 @@ angular.module('rjPreference', [])
 
 			if (attr.type && attr.type.toLowerCase() === 'checkbox') {
 				ngModel.$render = function() {
+					ngModel.$viewValue = (ngModel.$viewValue === "false") ? false : (ngModel.$viewValue === "true") ? true : ngModel.$viewValue;
 					element[0].checked = ngModel.$viewValue;
 				};
 			} else if (attr.type && attr.type.toLowerCase() === 'radio'){
