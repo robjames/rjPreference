@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<title>rjPreference</title>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 
 	<script src="rjPreference.js" type="text/javascript"></script>
 	<script>
@@ -40,4 +40,8 @@ Change some values, refresh the page. Close window, reopen etc. Values should al
 
 {{teststore.status}} {{teststore.message}}
 
+
+<!--[if lte IE 7]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.1/json3.min.js"></script>
+<![endif]-->
 </body></html>
