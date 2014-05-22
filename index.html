@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="MyApp" >
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<title>rjPreference</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+
+	<script src="rjPreference.js" type="text/javascript"></script>
+	<script>
+		angular.module('MyApp', ['rjPreference'])
+		.controller('TestStoreCtrl', ['$scope','rjStore', function($scope, store){
+
+			$scope.teststore = {
+				message: "Store Service is not working. It may be the first time this page has loaded",
+				status: "Error"
+			};
+
+			if (store){
+				$scope.teststore = store.get("teststore") || $scope.teststore;
+				store.save("teststore", {
+					message: "Store Service works!",
+					status: "Success"
+				});
+				//store.remove("teststore")
+			}
+
+		}])
+	</script>
+</head>
+<body ng-controller="TestStoreCtrl">
+<ol>
+	<li><input type="text" rj-preference="name1" ng-model="name1" name="name1" /></li>
+	<li><input type="checkbox" rj-preference="check1" name="check1" ng-model="check1" /></li>
+	<li><input type="radio" rj-preference="radio1" name="radio" ng-model="radio" value="val1" /><input type="radio" rj-preference="radio1" name="radio"  ng-model="radio" value="val2"/><input type="radio" rj-preference="radio1" name="radio" ng-model="radio" value="val3"  /></li>
+	<li><textarea rj-preference="textarea" ng-model="textarea"></textarea></li>
+</ol>
+
+{{teststore.status}} {{teststore.message}}
+
+</body></html>
